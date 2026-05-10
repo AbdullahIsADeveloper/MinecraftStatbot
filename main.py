@@ -165,7 +165,7 @@ SERVERS["catpvp"] = fetch_catpvp
 async def get_stats(
     username: str,
     server: str = "catpvp",
-    beautified: bool = False
+    embed: bool = False
 ):
     server = server.lower()
 
@@ -183,7 +183,7 @@ async def get_stats(
             detail="Player not found or data unavailable"
         )
 
-    if beautified:
+    if embed:
         embed = build_embed(username, data)
 
         return PlainTextResponse(content=embed)
